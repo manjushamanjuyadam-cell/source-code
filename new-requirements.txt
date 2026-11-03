@@ -1,0 +1,26 @@
+# PDF QC Comparison Tool — complete dependency list (pinned, conflict-free).
+# Install into a fresh virtual environment:
+#     python -m venv .venv
+#     .venv\Scripts\activate            (Windows)   |   source .venv/bin/activate (Unix)
+#     pip install -r new-requirements.txt
+#
+# NOTE: OCR needs the external Tesseract binary, and visual DOCX rendering needs
+# the external LibreOffice application — neither is a pip package.
+
+# --- Core runtime: PDF/OCR/DOCX extraction, comparison, reports, CLI ---
+pdfplumber==0.11.10
+pdfminer.six==20260107      # PDF parsing engine used by pdfplumber
+pytesseract==0.3.13         # OCR wrapper (requires Tesseract binary on the OS)
+Pillow==12.3.0
+python-docx==1.2.0
+
+# --- Optional feature: local Proxy spell check ---
+pyspellchecker==0.9.0
+
+# --- UI (Streamlit reviewer app) ---
+# 1.63.0 (not the older 1.27.2) — earlier Streamlit caps Pillow<11, which
+# conflicts with pdfplumber's Pillow>=12.2 requirement.
+streamlit==1.63.0
+
+# --- Development / testing (not needed to run the app) ---
+pytest==9.1.1

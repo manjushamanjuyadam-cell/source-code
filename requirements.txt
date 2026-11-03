@@ -1,0 +1,14 @@
+# PDF QC Comparison Tool — runtime dependencies (pinned for reproducibility).
+# Generated from the packages actually imported by the project code.
+
+# Core — PDF/OCR/DOCX extraction, comparison engine, report generation, CLI
+pdfplumber==0.11.10
+pytesseract==0.3.13    # also requires the Tesseract OCR binary installed on the OS
+Pillow==12.3.0
+python-docx==1.2.0
+pyspellchecker==0.9.0    # local, pure-Python proxy spell check (optional feature)
+
+# Optional UI — only needed to run the Streamlit reviewer UI (app.py).
+# 1.63.0: earlier Streamlit caps Pillow<11 and conflicts with pdfplumber's
+# Pillow>=12.2 requirement.
+streamlit==1.63.0

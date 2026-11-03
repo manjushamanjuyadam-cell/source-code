@@ -1,0 +1,5 @@
+# Development dependencies. Installs runtime deps too.
+-r requirements.txt
+
+# Testing (the only dev tooling actually used by this project)
+pytest==9.1.1
